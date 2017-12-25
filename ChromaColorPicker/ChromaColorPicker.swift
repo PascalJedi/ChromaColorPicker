@@ -46,6 +46,16 @@ open class ChromaColorPicker: UIControl {
     }
     
     open private(set) var currentColor = UIColor.red
+
+    open var activeColor: UIColor {
+            get {
+                return currentColor
+            }
+            set {
+                currentColor = newValue
+            }
+    }
+
     open var supportsShadesOfGray: Bool = false {
         didSet {
             if supportsShadesOfGray {
@@ -132,6 +142,7 @@ open class ChromaColorPicker: UIControl {
     
     override open func willMove(toSuperview newSuperview: UIView?) {
         /* Get the starting color */
+        currentAngle = angleForColor(currentColor)
         currentColor = colorOnWheelFromAngle(currentAngle)
         handleView.center = positionOnWheelFromAngle(currentAngle) //update pos for angle
         self.layoutHandleLine() //layout the lines positioning

@@ -24,6 +24,7 @@ class ViewController: UIViewController {
         /* Create Color Picker */
         colorPicker = ChromaColorPicker(frame: CGRect(origin: pickerOrigin, size: pickerSize))
         colorPicker.delegate = self
+        colorPicker.activeColor = UIColor.green
         
         /* Customize the view (optional) */
         colorPicker.padding = 10
