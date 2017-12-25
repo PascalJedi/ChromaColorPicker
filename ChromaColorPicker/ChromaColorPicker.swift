@@ -102,7 +102,6 @@ open class ChromaColorPicker: UIControl {
         
         /* Setup Add Button */
         addButton = ChromaAddButton()
-        self.layoutAddButton() //layout frame
         addButton.addTarget(self, action: #selector(ChromaColorPicker.addButtonPressed(_:)), for: .touchUpInside)
         
         /* Setup Handle Line */
@@ -112,7 +111,6 @@ open class ChromaColorPicker: UIControl {
         
         /* Setup Color Hex Label */
         hexLabel = UILabel()
-        self.layoutHexLabel() //layout frame
         hexLabel.layer.cornerRadius = 2
         hexLabel.adjustsFontSizeToFitWidth = true
         hexLabel.textAlignment = .center
@@ -121,12 +119,10 @@ open class ChromaColorPicker: UIControl {
         /* Setup Shade Slider */
         shadeSlider = ChromaShadeSlider()
         shadeSlider.delegate = self
-        self.layoutShadeSlider()
         shadeSlider.addTarget(self, action: #selector(ChromaColorPicker.sliderEditingDidEnd(_:)), for: .editingDidEnd)
         
         /* Setup Color Mode Toggle Button */
         colorToggleButton = ColorModeToggleButton()
-        self.layoutColorToggleButton() //layout frame
         colorToggleButton.colorState = .hue // Default as starting state is hue
         colorToggleButton.addTarget(self, action: #selector(togglePickerColorMode), for: .touchUpInside)
         colorToggleButton.isHidden = !supportsShadesOfGray // default to hiding if not supported
@@ -138,8 +134,15 @@ open class ChromaColorPicker: UIControl {
         self.addSubview(handleView)
         self.addSubview(addButton)
         self.addSubview(colorToggleButton)
+
+        self.layoutAddButton()
+        self.layoutHexLabel()
+        self.layoutShadeSlider()
+        self.layoutColorToggleButton()
+
+        setNeedsDisplay()
     }
-    
+
     override open func willMove(toSuperview newSuperview: UIView?) {
         /* Get the starting color */
         currentAngle = angleForColor(currentColor)
@@ -286,6 +289,9 @@ open class ChromaColorPicker: UIControl {
         let colorSpace: ColorSpace = (modeIsGrayscale) ? .grayscale : .rainbow
         
         drawCircleRing(in: ctx, outerRadius: radius - padding, innerRadius: radius - stroke - padding, resolution: 1, colorSpace: colorSpace)
+        self.layoutHandleLine()
+        self.layoutHandle()
+
     }
     
     /*
@@ -332,34 +338,15 @@ open class ChromaColorPicker: UIControl {
         context?.restoreGState()
     }
     
-    
-    //MARK: - Layout Updates
-    /* Re-layout view and all its subview and drawings */
-    open func layout() {
-        self.setNeedsDisplay() //mark view as dirty
-        
-        let minDimension = min(self.bounds.size.width, self.bounds.size.height)
-        radius = minDimension/2 - handleSize.width/2 //create radius for new size
-        
-        self.layoutAddButton()
-        
-        //Update handle's size
-        handleView.frame = CGRect(origin: .zero, size: handleSize)
-        self.layoutHandle()
-        
-        //Ensure colors are updated
-        self.updateCurrentColor(handleView.color)
-        shadeSlider.primaryColor = handleView.color
-        
-        self.layoutShadeSlider()
-        self.layoutHandleLine()
-        self.layoutHexLabel()
-        self.layoutColorToggleButton()
-    }
-    
     open func layoutAddButton(){
-        let addButtonSize = CGSize(width: self.bounds.width/5, height: self.bounds.height/5)
-        addButton.frame = CGRect(x: self.bounds.midX - addButtonSize.width/2, y: self.bounds.midY - addButtonSize.height/2, width: addButtonSize.width, height: addButtonSize.height)
+        addButton.frame = CGRect(x: self.bounds.midX, y: self.bounds.midY, width: self.bounds.width/5, height: self.bounds.height/5)
+
+        addButton.translatesAutoresizingMaskIntoConstraints = false
+        let horizontalConstraint = addButton.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+        let verticalConstraint = addButton.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+        let heightConstraint = addButton.heightAnchor.constraint(equalToConstant: self.bounds.height/5)
+        let widthConstraint = addButton.widthAnchor.constraint(equalToConstant: self.bounds.width/5)
+        self.addConstraints([horizontalConstraint, verticalConstraint, heightConstraint, widthConstraint])
     }
     
     /*
@@ -394,8 +381,13 @@ open class ChromaColorPicker: UIControl {
     */
     func layoutHexLabel(){
         hexLabel.frame = CGRect(x: 0, y: 0, width: addButton.bounds.width*1.5, height: addButton.bounds.height/3)
-        hexLabel.center = CGPoint(x: self.bounds.midX, y: (addButton.frame.origin.y + (padding + handleView.frame.height/2 + stroke/2))/1.75) //Divided by 1.75 not 2 to make it a bit lower
         hexLabel.font = UIFont(name: "Menlo-Regular", size: hexLabel.bounds.height)
+
+        hexLabel.translatesAutoresizingMaskIntoConstraints = false
+        let horizontalConstraint = hexLabel.bottomAnchor.constraint(equalTo: addButton.topAnchor, constant: -30)
+        let verticalConstraint = hexLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+        let heightConstraint = hexLabel.heightAnchor.constraint(equalToConstant: hexLabel.bounds.height)
+        self.addConstraints([horizontalConstraint, verticalConstraint, heightConstraint])
     }
     
     /*
@@ -409,21 +401,34 @@ open class ChromaColorPicker: UIControl {
         let pointLeft = CGPoint(x: centerPoint.x + insideRadius*CGFloat(cos(7*Double.pi/6)), y: centerPoint.y - insideRadius*CGFloat(sin(7*Double.pi/6)))
         let pointRight = CGPoint(x: centerPoint.x + insideRadius*CGFloat(cos(11*Double.pi/6)), y: centerPoint.y - insideRadius*CGFloat(sin(11*Double.pi/6)))
         let deltaX = pointRight.x - pointLeft.x //distance on circle between points at 7pi/6 and 11pi/6
-        
 
         let sliderSize = CGSize(width: deltaX * 0.75, height: 0.08 * (bounds.height - padding*2))//bounds.height
         shadeSlider.frame = CGRect(x: bounds.midX - sliderSize.width/2, y: pointLeft.y - sliderSize.height/2, width: sliderSize.width, height: sliderSize.height)
         shadeSlider.handleCenterX = shadeSlider.bounds.width/2 //set handle starting position
         shadeSlider.layoutLayerFrames() //call sliders' layout function
+
+        shadeSlider.translatesAutoresizingMaskIntoConstraints = false
+        let horizontalConstraint = shadeSlider.topAnchor.constraint(equalTo: addButton.bottomAnchor, constant: 30)
+        let verticalConstraint = shadeSlider.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+        let heightConstraint = shadeSlider.heightAnchor.constraint(equalToConstant: sliderSize.height)
+        let widthConstraint = shadeSlider.widthAnchor.constraint(equalToConstant: sliderSize.width)
+        self.addConstraints([horizontalConstraint, verticalConstraint, heightConstraint, widthConstraint])
     }
     
     /*
      Pre: dependant on addButton
     */
     func layoutColorToggleButton() {
-        let inset = bounds.height/16
+        let inset = bounds.height/4
         colorToggleButton.frame = CGRect(x: inset, y: inset, width: addButton.frame.width/2.5, height: addButton.frame.width/2.5)
         colorToggleButton.layoutSubviews()
+
+        colorToggleButton.translatesAutoresizingMaskIntoConstraints = false
+        let horizontalConstraint = colorToggleButton.topAnchor.constraint(equalTo: self.topAnchor, constant: inset)
+        let verticalConstraint = colorToggleButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: inset)
+        let heightConstraint = colorToggleButton.heightAnchor.constraint(equalToConstant: addButton.frame.width/2.5)
+        let widthConstraint = colorToggleButton.widthAnchor.constraint(equalToConstant: addButton.frame.width/2.5)
+        self.addConstraints([horizontalConstraint, verticalConstraint, heightConstraint , widthConstraint])
     }
     
     func updateHexLabel(){

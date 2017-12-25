@@ -8,10 +8,13 @@
 
 import UIKit
 import ChromaColorPicker
+import SwifterSwift
 
 class ViewController: UIViewController {
     
     @IBOutlet weak var colorDisplayView: UIView!
+    @IBOutlet weak var pickerLabel: UILabel!
+    
     var colorPicker: ChromaColorPicker!
     
     override func viewDidLoad() {
@@ -20,7 +23,7 @@ class ViewController: UIViewController {
         /* Calculate relative size and origin in bounds */
         let pickerSize = CGSize(width: view.bounds.width*0.8, height: view.bounds.width*0.8)
         let pickerOrigin = CGPoint(x: view.bounds.midX - pickerSize.width/2, y: view.bounds.midY - pickerSize.height/2)
-        
+
         /* Create Color Picker */
         colorPicker = ChromaColorPicker(frame: CGRect(origin: pickerOrigin, size: pickerSize))
         colorPicker.delegate = self
@@ -42,6 +45,15 @@ class ViewController: UIViewController {
         //colorPicker.shadeSlider.hidden = true
         
         self.view.addSubview(colorPicker)
+
+        self.colorPicker.translatesAutoresizingMaskIntoConstraints = false
+        let horizontalConstraint = self.colorPicker.topAnchor.constraint(equalTo: pickerLabel.bottomAnchor, constant: 22)
+        let verticalConstraint = self.colorPicker.bottomAnchor.constraint(equalTo: colorDisplayView.topAnchor, constant: -22)
+        let widthConstraint = self.colorPicker.leadingAnchor.constraint(equalTo: self.view.leadingAnchor)
+        let heightConstraint = self.colorPicker.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
+        self.view.addConstraints([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
+
+        colorPicker.setNeedsDisplay()
     }
 }
 
