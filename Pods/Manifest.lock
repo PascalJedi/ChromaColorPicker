@@ -1,12 +1,24 @@
 PODS:
-  - EarlGrey (1.6.1)
+  - SwifterSwift (4.1.0):
+    - SwifterSwift/AppKit (= 4.1.0)
+    - SwifterSwift/CoreGraphics (= 4.1.0)
+    - SwifterSwift/CoreLocation (= 4.1.0)
+    - SwifterSwift/Foundation (= 4.1.0)
+    - SwifterSwift/SwiftStdlib (= 4.1.0)
+    - SwifterSwift/UIKit (= 4.1.0)
+  - SwifterSwift/AppKit (4.1.0)
+  - SwifterSwift/CoreGraphics (4.1.0)
+  - SwifterSwift/CoreLocation (4.1.0)
+  - SwifterSwift/Foundation (4.1.0)
+  - SwifterSwift/SwiftStdlib (4.1.0)
+  - SwifterSwift/UIKit (4.1.0)
 
 DEPENDENCIES:
-  - EarlGrey
+  - SwifterSwift
 
 SPEC CHECKSUMS:
-  EarlGrey: cc30647d18d705eabe50e1144670490a32b170c7
+  SwifterSwift: 4d962b5d653760b85266832aff6ab6d08c1b7974
 
-PODFILE CHECKSUM: 1e5bf9a40304203ee13cb2da99621e04a702e698
+PODFILE CHECKSUM: cec62f4057180bbb52090308ae63e549d88c4433
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.4.0.rc.1

@@ -1,10 +1,17 @@
-# Xcode
 #
-# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
-## Build generated
+# -----------------------------
+
+# OS X
+.DS_Store
+
+# -----------------------------
+
+## Xcode generated
 build/
 DerivedData/
+
+# -----------------------------
 
 ## Various settings
 *.pbxuser
@@ -16,11 +23,23 @@ DerivedData/
 *.perspectivev3
 !default.perspectivev3
 xcuserdata/
+profile
+scratch.txt
+
+# -----------------------------
 
 ## Other
 *.moved-aside
 *.xccheckout
 *.xcscmblueprint
+*.xcuserstate
+*.xcworkspacedata
+*.xcuserdatad
+-*/
+•*/
+scratch.txt
+
+# -----------------------------
 
 ## Obj-C/Swift specific
 *.hmap
@@ -28,36 +47,55 @@ xcuserdata/
 *.dSYM.zip
 *.dSYM
 
+# -----------------------------
+
+## Ruby
+.ruby-gemset.*
+.ruby-version.*
+.rvmrc*
+#Gemfile.lock
+
+# -----------------------------
+
 # CocoaPods
-#
 # We recommend against adding the Pods directory to your .gitignore. However
 # you should judge for yourself, the pros and cons are mentioned at:
-# https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
+# http://guides.cocoapods.org/using/using-cocoapods.html#should-i-ignore-the-pods-directory-in-source-control
 #
-# Pods/
+Pods/
+
+# -----------------------------
 
 # Carthage
 #
 # Add this line if you want to avoid checking in source code from Carthage dependencies.
 # Carthage/Checkouts
-
+#
 Carthage/Build
 
-# fastlane
-#
-# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
-# screenshots whenever they are needed.
-# For more information about the recommended setup visit:
-# https://docs.fastlane.tools/best-practices/source-control/#source-control
+# -----------------------------
 
+# fastlane
+
+# fastlane/screenshots/*
+# fastlane/screenshots-app-store/*
+fastlane/screenshots-app-store/devices_frames
+*.mobileprovision
+*.cer
 fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
+fastlane-setup.bash
+*.xcscmblueprint
+Working
 
-# Code Injection
-#
-# After new code Injection tools there's a generated folder /iOSInjectionProject
-# https://github.com/johnno1962/injectionforxcode
+# -----------------------------
 
 iOSInjectionProject/
+
+# -----------------------------
+
+Artwork/Generated Images
+Artwork/Vectors - Characters
+Artwork/Generated
