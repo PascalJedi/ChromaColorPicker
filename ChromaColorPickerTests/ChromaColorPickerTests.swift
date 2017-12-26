@@ -8,9 +8,11 @@
 
 import EarlGrey
 import XCTest
+import ChromaColorPicker
+
 @testable import ChromaColorPicker_Demo
 
-let EarlGrey = EarlGreyImpl.invoked(fromFile: #file, lineNumber: #line)!
+let EarlGreyTester = EarlGreyImpl.invoked(fromFile: #file, lineNumber: #line)!
 
 class ChromaColorPickerTests: XCTestCase {
     
@@ -41,11 +43,10 @@ class ChromaColorPickerTests: XCTestCase {
     }
     
     func testButtonDelegateRecieved() {
-        let pickerMatch = grey_allOfMatchers([ grey_accessibilityLabel("color_picker") ])
+        let pickerMatch = grey_allOf([ grey_accessibilityLabel("color_picker") ])
             
         let colorOnTap = colorPicker.currentColor
-        EarlGrey.selectElement(with: pickerMatch)
-                .perform(grey_tap())
+        EarlGreyTester.selectElement(with: pickerMatch).perform(grey_tap())
             
         XCTAssertTrue(viewController.colorDisplayView.backgroundColor!.description == colorOnTap.description)
     }

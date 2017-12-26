@@ -21,10 +21,12 @@
 		35C376D61D5CF5300069D7A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35C376D41D5CF5300069D7A1 /* Main.storyboard */; };
 		35C376D81D5CF5300069D7A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35C376D71D5CF5300069D7A1 /* Assets.xcassets */; };
 		35C376DB1D5CF5300069D7A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35C376D91D5CF5300069D7A1 /* LaunchScreen.storyboard */; };
+		5C101D06C8F5B9E1C521D9C9 /* Pods_ChromaColorPickerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91485B6B5C58777417441794 /* Pods_ChromaColorPickerTests.framework */; };
 		8270F252F96887F4477FB685 /* EarlGrey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1238148AD8A32E8063966 /* EarlGrey.swift */; };
 		C29695C5168AFB583F5307C6 /* EarlGrey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6556D4978962901A8C91E26 /* EarlGrey.framework */; };
 		C9936753E987DF8B44129A2A /* EarlGrey.framework in EarlGrey Copy Files */ = {isa = PBXBuildFile; fileRef = A6556D4978962901A8C91E26 /* EarlGrey.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		D6187B8FE923BCF9ED336BD7 /* Pods_ChromaColorPicker_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48EC3855DE653F2A7B18407D /* Pods_ChromaColorPicker_Demo.framework */; };
+		F50DBF641FF2340D00791BA4 /* UIColor+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C376E61D5CF9400069D7A1 /* UIColor+Utilities.swift */; };
 		FC4AE3DB1E16DEA300F02C60 /* ChromaColorPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4AE3DA1E16DEA300F02C60 /* ChromaColorPickerTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -89,10 +91,12 @@
 		35C376E51D5CF9400069D7A1 /* ChromaShadeSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChromaShadeSlider.swift; path = ChromaColorPicker/ChromaShadeSlider.swift; sourceTree = SOURCE_ROOT; };
 		35C376E61D5CF9400069D7A1 /* UIColor+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Utilities.swift"; path = "ChromaColorPicker/UIColor+Utilities.swift"; sourceTree = SOURCE_ROOT; };
 		48EC3855DE653F2A7B18407D /* Pods_ChromaColorPicker_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChromaColorPicker_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C1037ACF1EE90E36753DE4C /* Pods-ChromaColorPickerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChromaColorPickerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChromaColorPickerTests/Pods-ChromaColorPickerTests.release.xcconfig"; sourceTree = "<group>"; };
 		91485B6B5C58777417441794 /* Pods_ChromaColorPickerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChromaColorPickerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99B1238148AD8A32E8063966 /* EarlGrey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EarlGrey.swift; sourceTree = "<group>"; };
 		9F515B990E9959B4D6F202D4 /* Pods-ChromaColorPicker-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChromaColorPicker-Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChromaColorPicker-Demo/Pods-ChromaColorPicker-Demo.release.xcconfig"; sourceTree = "<group>"; };
 		A6556D4978962901A8C91E26 /* EarlGrey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EarlGrey.framework; path = Pods/EarlGrey/EarlGrey/EarlGrey.framework; sourceTree = SOURCE_ROOT; };
+		BE6702FDE015DC35AE8737CC /* Pods-ChromaColorPickerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChromaColorPickerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChromaColorPickerTests/Pods-ChromaColorPickerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FC4AE3D81E16DEA300F02C60 /* ChromaColorPickerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChromaColorPickerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC4AE3DA1E16DEA300F02C60 /* ChromaColorPickerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChromaColorPickerTests.swift; sourceTree = "<group>"; };
 		FC4AE3DC1E16DEA300F02C60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -120,6 +124,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C29695C5168AFB583F5307C6 /* EarlGrey.framework in Frameworks */,
+				5C101D06C8F5B9E1C521D9C9 /* Pods_ChromaColorPickerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,6 +205,8 @@
 			children = (
 				0DCFD415A190FDBA235900F1 /* Pods-ChromaColorPicker-Demo.debug.xcconfig */,
 				9F515B990E9959B4D6F202D4 /* Pods-ChromaColorPicker-Demo.release.xcconfig */,
+				BE6702FDE015DC35AE8737CC /* Pods-ChromaColorPickerTests.debug.xcconfig */,
+				8C1037ACF1EE90E36753DE4C /* Pods-ChromaColorPickerTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -272,10 +279,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FC4AE3DF1E16DEA300F02C60 /* Build configuration list for PBXNativeTarget "ChromaColorPickerTests" */;
 			buildPhases = (
+				9DF721DAFB96EF1582078306 /* [CP] Check Pods Manifest.lock */,
 				FC4AE3D41E16DEA300F02C60 /* Sources */,
 				FC4AE3D51E16DEA300F02C60 /* Frameworks */,
 				FC4AE3D61E16DEA300F02C60 /* Resources */,
 				5A379167BBC5CB7BE184F9C0 /* EarlGrey Copy Files */,
+				22D06F6C90AF28139A42B053 /* [CP] Embed Pods Frameworks */,
+				86B6BB671808E94665243943 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -309,6 +319,7 @@
 					};
 					FC4AE3D71E16DEA300F02C60 = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 35C376CC1D5CF5300069D7A1;
 					};
@@ -362,6 +373,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		22D06F6C90AF28139A42B053 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ChromaColorPickerTests/Pods-ChromaColorPickerTests-frameworks.sh",
+				"${PODS_ROOT}/EarlGrey/EarlGrey/EarlGrey.framework",
+				"${BUILT_PRODUCTS_DIR}/SwifterSwift/SwifterSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EarlGrey.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwifterSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ChromaColorPickerTests/Pods-ChromaColorPickerTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		24C80044A8E205441EDC8393 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -389,6 +420,39 @@
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-ChromaColorPicker-Demo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		86B6BB671808E94665243943 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ChromaColorPickerTests/Pods-ChromaColorPickerTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9DF721DAFB96EF1582078306 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ChromaColorPickerTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -444,6 +508,7 @@
 			files = (
 				FC4AE3DB1E16DEA300F02C60 /* ChromaColorPickerTests.swift in Sources */,
 				8270F252F96887F4477FB685 /* EarlGrey.swift in Sources */,
+				F50DBF641FF2340D00791BA4 /* UIColor+Utilities.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -666,6 +731,7 @@
 		};
 		FC4AE3E01E16DEA300F02C60 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE6702FDE015DC35AE8737CC /* Pods-ChromaColorPickerTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -675,13 +741,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jonathancardasis.ChromaColorPickerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChromaColorPicker-Demo.app/ChromaColorPicker-Demo";
 			};
 			name = Debug;
 		};
 		FC4AE3E11E16DEA300F02C60 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C1037ACF1EE90E36753DE4C /* Pods-ChromaColorPickerTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -690,7 +757,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jonathancardasis.ChromaColorPickerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChromaColorPicker-Demo.app/ChromaColorPicker-Demo";
 			};
 			name = Release;
