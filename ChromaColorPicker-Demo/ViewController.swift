@@ -17,7 +17,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var hexField: UITextField!
 
     var colorPicker: ChromaColorPicker!
-    
+
+    //--------------------------------------------------------------------------
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -58,9 +60,12 @@ class ViewController: UIViewController {
 
         colorPicker.setNeedsDisplay()
     }
+
 }
 
 //--------------------------------------------------------------------------
+
+// - MARK: ChromaColorPickerDelegate Delegates
 
 extension ViewController: ChromaColorPickerDelegate{
     func colorPickerDidChooseColor(_ colorPicker: ChromaColorPicker, color: UIColor) {
@@ -82,11 +87,20 @@ extension ViewController: ChromaColorPickerDelegate{
 
 //--------------------------------------------------------------------------
 
+// - MARK: UITextFieldDelegate Delegates
+
 extension ViewController: UITextFieldDelegate{
 
     public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
     {
         return string.isValidHexadecimal || (string.count <= 7)
+    }
+
+    //--------------------------------------------------------------------------
+
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
 
     //--------------------------------------------------------------------------
@@ -108,17 +122,28 @@ extension ViewController: UITextFieldDelegate{
             hexField.textColor = UIColor.black
         } else {
             hexField.textColor = UIColor.red
+            self.displayHexEntryErrorDialog()
         }
     }
 
     //--------------------------------------------------------------------------
 
-    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return false
+    func displayHexEntryErrorDialog() {
+
+        // create the alert
+        let alert = UIAlertController(title: "Hex Entry Error", message: "The format for the Hex field is #FFF or #FFFFFF.", preferredStyle: .alert)
+
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
     }
 
 }
+
+
+// - MARK: String Extension
 
 public extension String {
     /**
