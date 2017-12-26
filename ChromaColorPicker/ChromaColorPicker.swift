@@ -419,7 +419,7 @@ open class ChromaColorPicker: UIControl {
      Pre: dependant on addButton
     */
     func layoutColorToggleButton() {
-        let inset = bounds.height/4
+        let inset = bounds.height/5
         colorToggleButton.frame = CGRect(x: inset, y: inset, width: addButton.frame.width/2.5, height: addButton.frame.width/2.5)
         colorToggleButton.layoutSubviews()
 
@@ -528,6 +528,9 @@ open class ChromaColorPicker: UIControl {
 extension ChromaColorPicker: ChromaShadeSliderDelegate{
     public func shadeSliderChoseColor(_ slider: ChromaShadeSlider, color: UIColor) {
         self.updateCurrentColor(color) //update main controller for selected color
+        self.currentAngle = angleForColor(color)
+        handleView.center = positionOnWheelFromAngle(currentAngle) //update pos for angle
+        self.layoutHandleLine() //layout the lines positioning
         self.updateHexLabel()
     }
 }

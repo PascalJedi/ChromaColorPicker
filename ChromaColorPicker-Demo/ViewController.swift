@@ -14,12 +14,15 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var colorDisplayView: UIView!
     @IBOutlet weak var pickerLabel: UILabel!
-    
+    @IBOutlet weak var hexField: UITextField!
+
     var colorPicker: ChromaColorPicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        hexField.delegate = self
+
         /* Calculate relative size and origin in bounds */
         let pickerSize = CGSize(width: view.bounds.width*0.8, height: view.bounds.width*0.8)
         let pickerOrigin = CGPoint(x: view.bounds.midX - pickerSize.width/2, y: view.bounds.midY - pickerSize.height/2)
@@ -31,7 +34,7 @@ class ViewController: UIViewController {
         
         /* Customize the view (optional) */
         colorPicker.padding = 10
-        colorPicker.stroke = 3 //stroke of the rainbow circle
+        colorPicker.stroke = 10 //stroke of the rainbow circle
         colorPicker.currentAngle = Float.pi
         
         /* Customize for grayscale (optional) */
@@ -48,7 +51,7 @@ class ViewController: UIViewController {
 
         self.colorPicker.translatesAutoresizingMaskIntoConstraints = false
         let horizontalConstraint = self.colorPicker.topAnchor.constraint(equalTo: pickerLabel.bottomAnchor, constant: 22)
-        let verticalConstraint = self.colorPicker.bottomAnchor.constraint(equalTo: colorDisplayView.topAnchor, constant: -22)
+        let verticalConstraint = self.colorPicker.bottomAnchor.constraint(equalTo: hexField.topAnchor, constant: -22)
         let widthConstraint = self.colorPicker.leadingAnchor.constraint(equalTo: self.view.leadingAnchor)
         let heightConstraint = self.colorPicker.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
         self.view.addConstraints([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
@@ -57,11 +60,14 @@ class ViewController: UIViewController {
     }
 }
 
+//--------------------------------------------------------------------------
+
 extension ViewController: ChromaColorPickerDelegate{
     func colorPickerDidChooseColor(_ colorPicker: ChromaColorPicker, color: UIColor) {
         //Set color for the display view
         colorDisplayView.backgroundColor = color
-        
+        hexField.text = color.hexString
+
         //Perform zesty animation
         UIView.animate(withDuration: 0.2,
                 animations: {
@@ -71,6 +77,59 @@ extension ViewController: ChromaColorPickerDelegate{
                     self.colorDisplayView.transform = CGAffineTransform.identity
                 })
         }) 
+    }
+}
+
+//--------------------------------------------------------------------------
+
+extension ViewController: UITextFieldDelegate{
+
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
+    {
+        return string.isValidHexadecimal || (string.count <= 7)
+    }
+
+    //--------------------------------------------------------------------------
+
+    func isValidCSSHex(hex: String) -> Bool {
+        return hex.range(of: "#([a-fA-F0-9]{3}){1,2}\\b", options: .regularExpression) != nil
+    }
+
+    //--------------------------------------------------------------------------
+
+    @IBAction func hexEditEnded(_ sender: Any) {
+        var tempColor: UIColor = .red
+        let hexString = hexField.text!
+        if self.isValidCSSHex(hex: hexString) {
+            let colorFromHex = UIColor.init(hexString: hexField.text!)
+            tempColor = colorFromHex!
+            colorPicker.activeColor = tempColor
+            colorPicker.shadeSliderChoseColor(colorPicker.shadeSlider, color: tempColor)
+            hexField.textColor = UIColor.black
+        } else {
+            hexField.textColor = UIColor.red
+        }
+    }
+
+    //--------------------------------------------------------------------------
+
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+
+}
+
+public extension String {
+    /**
+     A Boolean value indicating whether a string only contains hexadecimal characters.
+     */
+    public var isValidHexadecimal: Bool {
+        let chars = CharacterSet(charactersIn: "0123456789ABCDEFabcdef").inverted
+        guard self.count != 0, self.rangeOfCharacter(from: chars, options: .caseInsensitive, range: nil) == nil else {
+            return false
+        }
+        return true
     }
 }
 
