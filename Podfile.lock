@@ -1,27 +1,36 @@
 PODS:
-  - EarlGrey (1.12.1)
-  - SwifterSwift (4.1.0):
-    - SwifterSwift/AppKit (= 4.1.0)
-    - SwifterSwift/CoreGraphics (= 4.1.0)
-    - SwifterSwift/CoreLocation (= 4.1.0)
-    - SwifterSwift/Foundation (= 4.1.0)
-    - SwifterSwift/SwiftStdlib (= 4.1.0)
-    - SwifterSwift/UIKit (= 4.1.0)
-  - SwifterSwift/AppKit (4.1.0)
-  - SwifterSwift/CoreGraphics (4.1.0)
-  - SwifterSwift/CoreLocation (4.1.0)
-  - SwifterSwift/Foundation (4.1.0)
-  - SwifterSwift/SwiftStdlib (4.1.0)
-  - SwifterSwift/UIKit (4.1.0)
+  - EarlGrey (1.15.0)
+  - SwifterSwift (4.5.0):
+    - SwifterSwift/AppKit (= 4.5.0)
+    - SwifterSwift/CoreGraphics (= 4.5.0)
+    - SwifterSwift/CoreLocation (= 4.5.0)
+    - SwifterSwift/Foundation (= 4.5.0)
+    - SwifterSwift/MapKit (= 4.5.0)
+    - SwifterSwift/SpriteKit (= 4.5.0)
+    - SwifterSwift/SwiftStdlib (= 4.5.0)
+    - SwifterSwift/UIKit (= 4.5.0)
+  - SwifterSwift/AppKit (4.5.0)
+  - SwifterSwift/CoreGraphics (4.5.0)
+  - SwifterSwift/CoreLocation (4.5.0)
+  - SwifterSwift/Foundation (4.5.0)
+  - SwifterSwift/MapKit (4.5.0)
+  - SwifterSwift/SpriteKit (4.5.0)
+  - SwifterSwift/SwiftStdlib (4.5.0)
+  - SwifterSwift/UIKit (4.5.0)
 
 DEPENDENCIES:
   - EarlGrey
   - SwifterSwift
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - EarlGrey
+    - SwifterSwift
+
 SPEC CHECKSUMS:
-  EarlGrey: f7774b813c888ebdb9a21e612d67874d17d5a326
-  SwifterSwift: 4d962b5d653760b85266832aff6ab6d08c1b7974
+  EarlGrey: 289a16cc7d08a54b962d72881b21e36d5103b549
+  SwifterSwift: 45339f9100181f0ca1d9b46248e45d0879a48596
 
-PODFILE CHECKSUM: 11387fb27acec51e87749ec9759e79caec745a7e
+PODFILE CHECKSUM: a1eab87e029276cf19bc31488645aab5e4e48ba9
 
-COCOAPODS: 1.4.0.rc.1
+COCOAPODS: 1.6.0.beta.1

@@ -187,7 +187,7 @@
 				35C376E61D5CF9400069D7A1 /* UIColor+Utilities.swift */,
 			);
 			name = ChromaColorPicker;
-			path = ../ChromaPicker;
+			path = ../ChromaColorPicker;
 			sourceTree = "<group>";
 		};
 		A18D889CBAEF3E0FD0A65ADB /* Frameworks */ = {
@@ -263,7 +263,6 @@
 				35C376CB1D5CF5300069D7A1 /* Resources */,
 				3503B83B1F2689BC00750356 /* Embed Frameworks */,
 				DCBCE87E263B59883AD3E5E1 /* [CP] Embed Pods Frameworks */,
-				24C80044A8E205441EDC8393 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -285,7 +284,6 @@
 				FC4AE3D61E16DEA300F02C60 /* Resources */,
 				5A379167BBC5CB7BE184F9C0 /* EarlGrey Copy Files */,
 				22D06F6C90AF28139A42B053 /* [CP] Embed Pods Frameworks */,
-				86B6BB671808E94665243943 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -304,18 +302,18 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Jonathan Cardasis";
 				TargetAttributes = {
 					3503B82E1F2689BC00750356 = {
 						CreatedOnToolsVersion = 8.2.1;
-						LastSwiftMigration = 0920;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 					35C376CC1D5CF5300069D7A1 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 43DKZUY8C6;
-						LastSwiftMigration = 0920;
+						DevelopmentTeam = YU598PK624;
+						LastSwiftMigration = 1000;
 					};
 					FC4AE3D71E16DEA300F02C60 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -379,7 +377,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ChromaColorPickerTests/Pods-ChromaColorPickerTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-ChromaColorPickerTests/Pods-ChromaColorPickerTests-frameworks.sh",
 				"${PODS_ROOT}/EarlGrey/EarlGrey/EarlGrey.framework",
 				"${BUILT_PRODUCTS_DIR}/SwifterSwift/SwifterSwift.framework",
 			);
@@ -390,22 +388,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ChromaColorPickerTests/Pods-ChromaColorPickerTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		24C80044A8E205441EDC8393 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ChromaColorPicker-Demo/Pods-ChromaColorPicker-Demo-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChromaColorPickerTests/Pods-ChromaColorPickerTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6FC03FFBC65D6DA70B8A15BF /* [CP] Check Pods Manifest.lock */ = {
@@ -424,21 +407,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		86B6BB671808E94665243943 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ChromaColorPickerTests/Pods-ChromaColorPickerTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9DF721DAFB96EF1582078306 /* [CP] Check Pods Manifest.lock */ = {
@@ -465,7 +433,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ChromaColorPicker-Demo/Pods-ChromaColorPicker-Demo-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-ChromaColorPicker-Demo/Pods-ChromaColorPicker-Demo-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/SwifterSwift/SwifterSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -474,7 +442,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ChromaColorPicker-Demo/Pods-ChromaColorPicker-Demo-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChromaColorPicker-Demo/Pods-ChromaColorPicker-Demo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -566,7 +534,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -591,7 +558,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jonathancardasis.ChromaColorPicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -611,12 +577,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -648,6 +616,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -664,12 +633,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -694,6 +665,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -705,11 +677,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = NO;
+				DEVELOPMENT_TEAM = YU598PK624;
 				INFOPLIST_FILE = "ChromaColorPicker-Demo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jonathancardasis.ChromaPicker-Demo";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cjg.ChromaPicker-Demo";
 				PRODUCT_NAME = "ChromaColorPicker-Demo";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -723,9 +695,8 @@
 				DEVELOPMENT_TEAM = YU598PK624;
 				INFOPLIST_FILE = "ChromaColorPicker-Demo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jonathancardasis.ChromaPicker-Demo";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cjg.ChromaPicker-Demo";
 				PRODUCT_NAME = "ChromaColorPicker-Demo";
-				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -741,7 +712,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jonathancardasis.ChromaColorPickerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChromaColorPicker-Demo.app/ChromaColorPicker-Demo";
 			};
 			name = Debug;
@@ -757,7 +727,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jonathancardasis.ChromaColorPickerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChromaColorPicker-Demo.app/ChromaColorPicker-Demo";
 			};
 			name = Release;

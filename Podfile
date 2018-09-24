@@ -53,7 +53,7 @@ post_install do |installer|
       config.build_settings['CODE_SIGNING_REQUIRED'] = 'NO'
       config.build_settings['CODE_SIGNING_ALLOWED'] = 'NO'
       config.build_settings['ENABLE_BITCODE'] = 'YES'
-      config.build_settings['SWIFT_VERSION'] = '4.0'
+      config.build_settings['SWIFT_VERSION'] = '4.2'
       config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '9.3'
       if config.name == "Debug"
         config.build_settings['GCC_OPTIMIZATION_LEVEL'] = '0'

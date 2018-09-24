@@ -134,7 +134,7 @@ extension ViewController: UITextFieldDelegate{
         let alert = UIAlertController(title: "Hex Entry Error", message: "The format for the Hex field is #FFF or #FFFFFF.", preferredStyle: .alert)
 
         // add an action (button)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
 
         // show the alert
         self.present(alert, animated: true, completion: nil)
