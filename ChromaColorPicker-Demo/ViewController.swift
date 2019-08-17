@@ -52,11 +52,15 @@ class ViewController: UIViewController {
         self.view.addSubview(colorPicker)
 
         self.colorPicker.translatesAutoresizingMaskIntoConstraints = false
-        let horizontalConstraint = self.colorPicker.topAnchor.constraint(equalTo: pickerLabel.bottomAnchor, constant: 22)
-        let verticalConstraint = self.colorPicker.bottomAnchor.constraint(equalTo: hexField.topAnchor, constant: -22)
-        let widthConstraint = self.colorPicker.leadingAnchor.constraint(equalTo: self.view.leadingAnchor)
-        let heightConstraint = self.colorPicker.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
-        self.view.addConstraints([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
+        
+        if #available(iOS 9.0, *) {
+        
+            let horizontalConstraint = self.colorPicker.topAnchor.constraint(equalTo: pickerLabel.bottomAnchor, constant: 22)
+            let verticalConstraint = self.colorPicker.bottomAnchor.constraint(equalTo: hexField.topAnchor, constant: -22)
+            let widthConstraint = self.colorPicker.leadingAnchor.constraint(equalTo: self.view.leadingAnchor)
+            let heightConstraint = self.colorPicker.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
+            self.view.addConstraints([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
+        }
 
         colorPicker.setNeedsDisplay()
     }

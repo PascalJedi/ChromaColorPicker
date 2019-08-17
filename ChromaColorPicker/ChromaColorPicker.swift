@@ -358,11 +358,14 @@ open class ChromaColorPicker: UIControl {
         addButton.frame = CGRect(x: self.bounds.midX, y: self.bounds.midY, width: self.bounds.width/5, height: self.bounds.height/5)
 
         addButton.translatesAutoresizingMaskIntoConstraints = false
+        if #available(iOS 9.0, *) {
         let horizontalConstraint = addButton.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         let verticalConstraint = addButton.centerYAnchor.constraint(equalTo: self.centerYAnchor)
         let heightConstraint = addButton.heightAnchor.constraint(equalToConstant: self.bounds.height/5)
         let widthConstraint = addButton.widthAnchor.constraint(equalToConstant: self.bounds.width/5)
-        self.addConstraints([horizontalConstraint, verticalConstraint, heightConstraint, widthConstraint])
+            self.addConstraints([horizontalConstraint, verticalConstraint, heightConstraint, widthConstraint])
+            
+        }
     }
 
     /*
@@ -424,11 +427,14 @@ open class ChromaColorPicker: UIControl {
         shadeSlider.layoutLayerFrames() //call sliders' layout function
 
         shadeSlider.translatesAutoresizingMaskIntoConstraints = false
-        let horizontalConstraint = shadeSlider.topAnchor.constraint(equalTo: addButton.bottomAnchor, constant: 30)
-        let verticalConstraint = shadeSlider.centerXAnchor.constraint(equalTo: self.centerXAnchor)
-        let heightConstraint = shadeSlider.heightAnchor.constraint(equalToConstant: sliderSize.height)
-        let widthConstraint = shadeSlider.widthAnchor.constraint(equalToConstant: sliderSize.width)
-        self.addConstraints([horizontalConstraint, verticalConstraint, heightConstraint, widthConstraint])
+    
+        if #available(iOS 9.0, *) {
+            let horizontalConstraint = shadeSlider.topAnchor.constraint(equalTo: addButton.bottomAnchor, constant: 30)
+            let verticalConstraint = shadeSlider.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+            let heightConstraint = shadeSlider.heightAnchor.constraint(equalToConstant: sliderSize.height)
+            let widthConstraint = shadeSlider.widthAnchor.constraint(equalToConstant: sliderSize.width)
+            self.addConstraints([horizontalConstraint, verticalConstraint, heightConstraint, widthConstraint])
+        }
     }
 
     /*
