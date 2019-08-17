@@ -403,10 +403,13 @@ open class ChromaColorPicker: UIControl {
         hexLabel.font = UIFont(name: "Menlo-Regular", size: hexLabel.bounds.height)
 
         hexLabel.translatesAutoresizingMaskIntoConstraints = false
-        let horizontalConstraint = hexLabel.bottomAnchor.constraint(equalTo: addButton.topAnchor, constant: -30)
-        let verticalConstraint = hexLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor)
-        let heightConstraint = hexLabel.heightAnchor.constraint(equalToConstant: hexLabel.bounds.height)
-        self.addConstraints([horizontalConstraint, verticalConstraint, heightConstraint])
+        
+        if #available(iOS 9.0, *) {
+            let horizontalConstraint = hexLabel.bottomAnchor.constraint(equalTo: addButton.topAnchor, constant: -30)
+            let verticalConstraint = hexLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+            let heightConstraint = hexLabel.heightAnchor.constraint(equalToConstant: hexLabel.bounds.height)
+            self.addConstraints([horizontalConstraint, verticalConstraint, heightConstraint])
+        }
     }
 
     /*
@@ -446,11 +449,14 @@ open class ChromaColorPicker: UIControl {
         colorToggleButton.layoutSubviews()
 
         colorToggleButton.translatesAutoresizingMaskIntoConstraints = false
-        let horizontalConstraint = colorToggleButton.topAnchor.constraint(equalTo: self.topAnchor, constant: inset)
-        let verticalConstraint = colorToggleButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: inset)
-        let heightConstraint = colorToggleButton.heightAnchor.constraint(equalToConstant: addButton.frame.width/2.5)
-        let widthConstraint = colorToggleButton.widthAnchor.constraint(equalToConstant: addButton.frame.width/2.5)
-        self.addConstraints([horizontalConstraint, verticalConstraint, heightConstraint , widthConstraint])
+        
+        if #available(iOS 9.0, *) {
+            let horizontalConstraint = colorToggleButton.topAnchor.constraint(equalTo: self.topAnchor, constant: inset)
+            let verticalConstraint = colorToggleButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: inset)
+            let heightConstraint = colorToggleButton.heightAnchor.constraint(equalToConstant: addButton.frame.width/2.5)
+            let widthConstraint = colorToggleButton.widthAnchor.constraint(equalToConstant: addButton.frame.width/2.5)
+            self.addConstraints([horizontalConstraint, verticalConstraint, heightConstraint , widthConstraint])
+        }
     }
 
     func updateHexLabel(){
