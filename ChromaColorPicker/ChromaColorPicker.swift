@@ -93,6 +93,12 @@ open class ChromaColorPicker: UIControl {
         super.init(frame: frame)
         self.commonInit()
     }
+    
+    public init(frame: CGRect, color : UIColor) {
+        super.init(frame: frame)
+        self.currentColor = color
+        self.commonInit()
+    }
 
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
